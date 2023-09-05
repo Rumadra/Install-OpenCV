@@ -19,7 +19,6 @@ install_dependency libjpeg-dev
 install_dependency libavcodec-dev
 install_dependency libavformat-dev
 install_dependency libswscale-dev
-install_dependency libdc1394-22-dev
 install_dependency libxine2-dev
 install_dependency libgstreamer0.10-dev
 install_dependency libgstreamer-plugins-base0.10-dev
