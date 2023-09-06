@@ -45,6 +45,7 @@ cd opencv-$version
 echo $version > version.txt
 # OpenCVPackaging.cmake内の該当行を置き換え
 sed -i "s/set(OPENCV_VCSVERSION .*)/set(OPENCV_VCSVERSION \"$(cat version.txt)\")/" cmake/OpenCVPackaging.cmake
+cat cmake/OpenCVPackaging.cmake
 # 一時的なファイルを削除
 rm version.txt
 
