@@ -44,7 +44,7 @@ cd opencv-$version
 # 環境変数の値を一時的なファイルに保存
 echo $version > version.txt
 # OpenCVPackaging.cmake内の該当行を置き換え
-sed -i "s/set(OPENCV_VCSVERSION .*)/set(OPENCV_VCSVERSION \"$(cat version.txt)\")/" cmake/OpenCVPackaging.cmake
+sed -i "s/set(CPACK_PACKAGE_VERSION "\${OPENCV_VCSVERSION}")/set(OPENCV_VCSVERSION \"$(cat version.txt)\")/" cmake/OpenCVPackaging.cmake
 cat cmake/OpenCVPackaging.cmake
 # 一時的なファイルを削除
 rm version.txt
