@@ -40,8 +40,14 @@ else
     tar -xvf $downloadfile
 fi
 cd opencv-$version
-git init
-git remote add origin https://github.com/opencv/opencv.git
+
+# 環境変数の値を一時的なファイルに保存
+echo $version > version.txt
+# OpenCVPackaging.cmake内の該当行を置き換え
+sed -i "s/set(OPENCV_VCSVERSION .*)/set(OPENCV_VCSVERSION \"$(cat version.txt)\")/" cmake/OpenCVPackaging.cmake
+# 一時的なファイルを削除
+rm version.txt
+
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON ..
