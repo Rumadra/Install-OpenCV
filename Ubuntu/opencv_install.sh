@@ -49,9 +49,11 @@ cat cmake/OpenCVPackaging.cmake
 # 一時的なファイルを削除
 rm version.txt
 
+sed -i '84i\set(CMAKE_OPENCV_GCC_VERSIONS "4;2;1")' cmake/OpenCVDetectCXXCompiler.cmake
+
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_CUDA=OFF -D WITH_CUFFT=OFF -D WITH_JASPER=OFF -D WITH_FFMPEG=OFF ..
 make -j 4
 # sudo make install
 make install
