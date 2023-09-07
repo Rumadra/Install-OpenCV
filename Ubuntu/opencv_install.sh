@@ -30,7 +30,7 @@ source dependencies.sh
 echo "--- Downloading OpenCV" $version
 mkdir -p $dldir
 cd $dldir
-wget --content-disposition -c -O $downloadfile https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/$downloadfile/download
+wget --content-disposition -c -O $downloadfile https://github.com/opencv/opencv/archive/refs/tags/$version.zip
 
 echo "--- Installing OpenCV" $version
 echo $downloadfile | grep ".zip"
