@@ -50,6 +50,7 @@ cat cmake/OpenCVPackaging.cmake
 rm version.txt
 
 sed -i '84i\set(CMAKE_OPENCV_GCC_VERSIONS "4;2;1")' cmake/OpenCVDetectCXXCompiler.cmake
+find modules/ -type f -exec sed -i 's|#include <sys/sysctl.h>|//#include <sys/sysctl.h>|g' {} +
 
 mkdir build
 cd build
